@@ -4,13 +4,13 @@ declare global {
     _fs_host: any;
   }
 }
-export const setupFullStory = async () => {
+export const setupFullStory = async (fsCodeArg: string) => {
   // tslint:disable-next-line: no-string-literal
   window['_fs_debug'] = false;
   // tslint:disable-next-line: no-string-literal
   window['_fs_host'] = 'fullstory.com';
   // tslint:disable-next-line: no-string-literal
-  window['_fs_org'] = 'G6FC5';
+  window['_fs_org'] = fsCodeArg;
   // tslint:disable-next-line: no-string-literal
   window['_fs_namespace'] = 'FS';
   (function(m, n, e, t, l, o, g, y) {

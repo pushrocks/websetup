@@ -1,6 +1,7 @@
 import * as plugins from './websetup.plugins';
 
 import { setupGoogleAnalytics } from './tools/ganalytics';
+import { setupFullStory } from './tools/fullstory';
 
 export interface IWebSetupConstructorOptions {
   googleAnalyticsCode?: string;
@@ -16,8 +17,8 @@ export class WebSetup {
       setupGoogleAnalytics(optionsArg.googleAnalyticsCode);
     }
 
-    if () {
-
+    if (optionsArg.fsCode) {
+      setupFullStory(optionsArg.fsCode)
     }
   }
 }
