@@ -1,3 +1,23 @@
 import * as plugins from './websetup.plugins';
 
-export let standardExport = 'Hi there! :) This is an exported string';
+import { setupGoogleAnalytics } from './tools/ganalytics';
+
+export interface IWebSetupConstructorOptions {
+  googleAnalyticsCode?: string;
+  fsCode?: string;
+}
+
+/**
+ * the main WebSetup class
+ */
+export class WebSetup {
+  constructor(optionsArg: IWebSetupConstructorOptions) {
+    if (optionsArg.googleAnalyticsCode) {
+      setupGoogleAnalytics(optionsArg.googleAnalyticsCode);
+    }
+
+    if () {
+
+    }
+  }
+}
