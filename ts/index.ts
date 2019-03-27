@@ -22,6 +22,8 @@ export class WebSetup {
   }
 
   async setup(optionsArg: IWebSetupConstructorOptions) {
+    await setupMetaInformation(optionsArg.metaObject);
+
     if (optionsArg.serviceworker) {
       await setupServiceWoker();
     }
