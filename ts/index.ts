@@ -22,8 +22,8 @@ export class WebSetup {
   }
 
   async setup(optionsArg: IWebSetupConstructorOptions) {
-    if(optionsArg.serviceworker) {
-      await setupServiceWoker()
+    if (optionsArg.serviceworker) {
+      await setupServiceWoker();
     }
 
     if (optionsArg.googleAnalyticsCode) {
@@ -31,7 +31,7 @@ export class WebSetup {
     }
 
     if (optionsArg.fsCode) {
-      await setupFullStory(optionsArg.fsCode)
+      await setupFullStory(optionsArg.fsCode);
     }
   }
 }

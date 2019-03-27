@@ -2,5 +2,15 @@
   "npmci": {
     "npmGlobalTools": [],
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "websetup",
+      "shortDescription": "setup basic page properties",
+      "npmPackagename": "@pushrocks/websetup",
+      "license": "MIT"
+    }
   }
 }
