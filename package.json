@@ -12,6 +12,10 @@
     "build": "(tsbuild)",
     "format": "(gitzone format)"
   },
+  "keywords": [
+    "lossless",
+    "websafe"
+  ],
   "devDependencies": {
     "@gitzone/tsbuild": "^2.0.22",
     "@gitzone/tstest": "^1.0.15",
