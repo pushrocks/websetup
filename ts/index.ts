@@ -2,38 +2,32 @@ import * as plugins from './websetup.plugins';
 
 import { setupGoogleAnalytics } from './tools/ganalytics';
 import { setupFullStory } from './tools/fullstory';
-import { setupServiceWoker } from './serviceworker';
 import { IMetaObject, setupMetaInformation } from './meta';
 
 export interface IWebSetupConstructorOptions {
   googleAnalyticsCode?: string;
   fsCode?: string;
   metaObject: IMetaObject;
-  serviceworker?: boolean;
 }
 
 /**
  * the main WebSetup class
  */
 export class WebSetup {
+  public options: IWebSetupConstructorOptions;
   constructor(optionsArg: IWebSetupConstructorOptions) {
-    // most important, lets get the meta information in place
-    this.setup(optionsArg);
+    this.options = optionsArg;
   }
 
-  async setup(optionsArg: IWebSetupConstructorOptions) {
-    await setupMetaInformation(optionsArg.metaObject);
+  public async setup() {
+    await setupMetaInformation(this.options.metaObject);
 
-    if (optionsArg.serviceworker) {
-      await setupServiceWoker();
+    if (this.options.googleAnalyticsCode) {
+      await setupGoogleAnalytics(this.options.googleAnalyticsCode);
     }
 
-    if (optionsArg.googleAnalyticsCode) {
-      await setupGoogleAnalytics(optionsArg.googleAnalyticsCode);
-    }
-
-    if (optionsArg.fsCode) {
-      await setupFullStory(optionsArg.fsCode);
+    if (this.options.fsCode) {
+      await setupFullStory(this.options.fsCode);
     }
   }
 }
