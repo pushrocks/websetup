@@ -22,6 +22,7 @@ export const setupGoogleAnalytics = async (gaCode: string) => {
     (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
     a.async = 1;
     a.src = g;
+    a.crossorigin = 'anonymous';
     m.parentNode.insertBefore(a, m);
   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'analytics');
 

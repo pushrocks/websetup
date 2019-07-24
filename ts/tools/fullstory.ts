@@ -28,6 +28,7 @@ export const setupFullStory = async (fsCodeArg: string) => {
     o = n.createElement(t);
     o.async = 1;
     o.src = 'https://' + window._fs_host + '/s/fs.js';
+    o.crossorigin = 'anonymous';
     y = n.getElementsByTagName(t)[0];
     y.parentNode.insertBefore(o, y);
     // tslint:disable-next-line: only-arrow-functions
