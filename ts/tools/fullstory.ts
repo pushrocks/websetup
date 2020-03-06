@@ -1,7 +1,10 @@
 declare global {
   // tslint:disable-next-line: interface-name
   interface Window {
+    _fs_debug: boolean;
     _fs_host: any;
+    _fs_org: string;
+    _fs_namespace: string;
   }
 }
 export const setupFullStory = async (fsCodeArg: string) => {
@@ -13,7 +16,7 @@ export const setupFullStory = async (fsCodeArg: string) => {
   window['_fs_org'] = fsCodeArg;
   // tslint:disable-next-line: no-string-literal
   window['_fs_namespace'] = 'FS';
-  (function(m, n, e, t, l, o, g, y) {
+  ((m, n, e, t, l, o, g, y) => {
     if (e in m) {
       if (m.console && m.console.log) {
         m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');
