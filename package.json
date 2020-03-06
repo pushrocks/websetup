@@ -17,19 +17,20 @@
     "websafe"
   ],
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.0.22",
-    "@gitzone/tstest": "^1.0.15",
-    "@pushrocks/tapbundle": "^3.0.7",
-    "tslint": "^5.11.0",
+    "@gitzone/tsbuild": "^2.1.17",
+    "@gitzone/tstest": "^1.0.28",
+    "@pushrocks/tapbundle": "^3.2.0",
+    "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {},
   "files": [
-    "ts/*",
-    "ts_web/*",
-    "dist/*",
-    "dist_web/*",
-    "assets/*",
+    "ts/**/*",
+    "ts_web/**/*",
+    "dist/**/*",
+    "dist_web/**/*",
+    "dist_ts_web/**/*",
+    "assets/**/*",
     "cli.js",
     "npmextra.json",
     "readme.md"
