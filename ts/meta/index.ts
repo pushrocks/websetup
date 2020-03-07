@@ -89,7 +89,7 @@ const addCompanyInfo = async (
   returnElementArray.push(await addOpenGraphProperty('og:type', 'business.business'));
   returnElementArray.push(await addOpenGraphProperty('og:title', companyDataArg.name));
   returnElementArray.push(await addOpenGraphProperty('og:url', companyDataArg.contact.website));
-  returnElementArray.push(await addOpenGraphProperty('og:imge', companyDataArg.contact.logoUrl));
+  returnElementArray.push(await addOpenGraphProperty('og:image', companyDataArg.contact.logoUrl));
   returnElementArray.push(
     await addOpenGraphProperty(
       'business:contact_data:street_address',
