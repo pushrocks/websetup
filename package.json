@@ -9,8 +9,9 @@
   "license": "MIT",
   "scripts": {
     "test": "(tstest test/)",
-    "build": "(tsbuild --web)",
-    "format": "(gitzone format)"
+    "build": "(tsbuild --web && npm run bundle)",
+    "format": "(gitzone format)",
+    "bundle": "tsbundle --production --from ./ts/index.ts --to ./dist_bundle/bundle.js"
   },
   "keywords": [
     "lossless",
@@ -18,6 +19,7 @@
   ],
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.17",
+    "@gitzone/tsbundle": "^1.0.50",
     "@gitzone/tstest": "^1.0.28",
     "@pushrocks/tapbundle": "^3.2.0",
     "tslint": "^6.0.0",
