@@ -42,8 +42,7 @@ const addOpenGraphProperty = async (
   contentArg: string
 ): Promise<Element> => {
   const openGraphElement = document.createElement('meta');
-  const anonGE: any = openGraphElement;
-  anonGE.property = propertyNameArg;
+  openGraphElement.setAttribute('property', propertyNameArg);
   openGraphElement.content = contentArg;
   document.getElementsByTagName('head')[0].appendChild(openGraphElement);
   return openGraphElement;
