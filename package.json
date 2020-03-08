@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/websetup",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "private": false,
   "description": "setup basic page properties",
   "main": "dist/index.js",
