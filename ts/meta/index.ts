@@ -96,10 +96,27 @@ const addCompanyInfo = async (
       `${companyDataArg.contact.address.streetName} ${companyDataArg.contact.address.houseNumber}`
     )
   );
-  returnElementArray.push(await addOpenGraphProperty('business:contact_data:locality', companyDataArg.contact.address.postalCode));
-  returnElementArray.push(await addOpenGraphProperty('business:contact_data:region', companyDataArg.contact.address.city));
-  returnElementArray.push(await addOpenGraphProperty('business:contact_data:postal_code', companyDataArg.contact.address.postalCode));
-  returnElementArray.push(await addOpenGraphProperty('business:contact_data:country_name', companyDataArg.contact.address.country));
+  returnElementArray.push(
+    await addOpenGraphProperty(
+      'business:contact_data:locality',
+      companyDataArg.contact.address.postalCode
+    )
+  );
+  returnElementArray.push(
+    await addOpenGraphProperty('business:contact_data:region', companyDataArg.contact.address.city)
+  );
+  returnElementArray.push(
+    await addOpenGraphProperty(
+      'business:contact_data:postal_code',
+      companyDataArg.contact.address.postalCode
+    )
+  );
+  returnElementArray.push(
+    await addOpenGraphProperty(
+      'business:contact_data:country_name',
+      companyDataArg.contact.address.country
+    )
+  );
 
   return returnElementArray;
 };
