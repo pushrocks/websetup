@@ -9,9 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "(tstest test/)",
-    "build": "(tsbuild --web && npm run bundle)",
-    "format": "(gitzone format)",
-    "bundle": "tsbundle --production --from ./ts/index.ts --to ./dist_bundle/bundle.js"
+    "build": "(tsbuild --web && tsbundle npm)"
   },
   "keywords": [
     "lossless",
@@ -26,7 +24,7 @@
     "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {
-    "@tsclass/tsclass": "^3.0.12"
+    "@tsclass/tsclass": "^3.0.18"
   },
   "files": [
     "ts/**/*",

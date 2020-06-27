@@ -24,7 +24,7 @@ export const setupFullStory = async (fsCodeArg: string) => {
       return;
     }
     // tslint:disable-next-line: only-arrow-functions
-    g = m[e] = function(a, b, s) {
+    g = m[e] = function (a, b, s) {
       g.q ? g.q.push([a, b, s]) : g._api(a, b, s);
     };
     g.q = [];
@@ -35,36 +35,36 @@ export const setupFullStory = async (fsCodeArg: string) => {
     y = n.getElementsByTagName(t)[0];
     y.parentNode.insertBefore(o, y);
     // tslint:disable-next-line: only-arrow-functions
-    g.identify = function(i, v, s) {
+    g.identify = function (i, v, s) {
       g(l, { uid: i }, s);
       if (v) g(l, v, s);
     };
-    g.setUserVars = function(v, s) {
+    g.setUserVars = function (v, s) {
       g(l, v, s);
     };
-    g.event = function(i, v, s) {
+    g.event = function (i, v, s) {
       g('event', { n: i, p: v }, s);
     };
     // tslint:disable-next-line: only-arrow-functions
-    g.shutdown = function() {
+    g.shutdown = function () {
       g('rec', !1);
     };
-    g.restart = function() {
+    g.restart = function () {
       g('rec', !0);
     };
     // tslint:disable-next-line: only-arrow-functions
-    g.consent = function(a) {
+    g.consent = function (a) {
       g('consent', !arguments.length || a);
     };
     // tslint:disable-next-line: only-arrow-functions
-    g.identifyAccount = function(i, v) {
+    g.identifyAccount = function (i, v) {
       o = 'account';
       v = v || {};
       v.acctId = i;
       g(o, v);
     };
     // tslint:disable-next-line: only-arrow-functions
-    g.clearUserCookie = function() {};
+    g.clearUserCookie = function () {};
     // tslint:disable-next-line: no-string-literal
   })(window, document, window['_fs_namespace'], 'script', 'user');
 };

@@ -7,14 +7,14 @@ declare global {
 
 export const setupGoogleAnalytics = async (gaCode: string) => {
   // tslint:disable-next-line: only-arrow-functions
-  (function(i, s, o, g, r, a, m) {
+  (function (i, s, o, g, r, a, m) {
     // tslint:disable-next-line: no-string-literal
     i['GoogleAnalyticsObject'] = r;
     // tslint:disable-next-line: ban-comma-operator
     (i[r] =
       i[r] ||
       // tslint:disable-next-line: only-arrow-functions
-      function() {
+      function () {
         (i[r].q = i[r].q || []).push(arguments);
       }),
       (i[r].l = new Date().getTime());

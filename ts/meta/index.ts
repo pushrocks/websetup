@@ -66,9 +66,9 @@ const addCompanyInfo = async (
       telephone: companyDataArg.contact.phone,
       contactType: 'customer service',
       areaServed: 'DE',
-      availableLanguage: ['en', 'German']
+      availableLanguage: ['en', 'German'],
     },
-    sameAs: []
+    sameAs: [],
   };
 
   if (companyDataArg.contact.facebookUrl) {
