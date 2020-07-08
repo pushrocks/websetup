@@ -17,9 +17,9 @@
   ],
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.22",
-    "@gitzone/tsbundle": "^1.0.57",
-    "@gitzone/tstest": "^1.0.28",
-    "@pushrocks/tapbundle": "^3.2.1",
+    "@gitzone/tsbundle": "^1.0.72",
+    "@gitzone/tstest": "^1.0.38",
+    "@pushrocks/tapbundle": "^3.2.7",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.15.0"
   },
@@ -37,5 +37,8 @@
     "cli.js",
     "npmextra.json",
     "readme.md"
+  ],
+  "browserslist": [
+    "last 1 chrome versions"
   ]
 }
