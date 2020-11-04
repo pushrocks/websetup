@@ -35,6 +35,36 @@ export class JsonLdTag extends Tag {
     return ldTag;
   }
 
+  public static createNewsArticleLd (newsArticleArg: plugins.tsclass.content.IArticle) {
+    const newsArticleLd = {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": window.location.href
+      },
+      "headline": "Article headline",
+      "image": [
+        newsArticleArg.featuredImageUrl
+       ],
+      "datePublished": new Date(newsArticleArg.timestamp).toISOString(),
+      "dateModified": new Date(newsArticleArg.timestamp).toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": `${newsArticleArg.author.firstName} ${newsArticleArg.author.surName}`
+      },
+       "publisher": {
+        "@type": "Organization",
+        "name": newsArticleArg.author.surName, // TODO
+        "logo": {
+          "@type": "ImageObject",
+          "url": newsArticleArg.author.surName // TODO
+        }
+      },
+      "description": newsArticleArg.author.firstName
+    };
+  }
+
   constructor(ldObjectArg: any) {
     super();
     const jsonLdElement = document.createElement('script');
