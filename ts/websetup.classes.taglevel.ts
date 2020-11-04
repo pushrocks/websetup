@@ -8,7 +8,7 @@ export type TBaseLevelType = 'global' | 'base' | 'subpage';
 
 export class TagLevel {
   public tagManagerRef: TagManager;
-  
+
   public title: string;
   public type: TBaseLevelType;
   public tags: Tag[] = [];
@@ -21,12 +21,9 @@ export class TagLevel {
     this.tags.push(tagArg);
   }
 
-  public async addCompanyInfo(
-    companyDataArg: plugins.tsclass.business.ICompany
-  ) {
-  
+  public async addCompanyInfo(companyDataArg: plugins.tsclass.business.ICompany) {
     this.addTag(JsonLdTag.createCompanyLd(companyDataArg));
-  
+
     // lets care about open graph
     this.addTag(new OpengraphTag('og:type', 'business.business'));
     this.addTag(new OpengraphTag('og:title', companyDataArg.name));
@@ -39,10 +36,7 @@ export class TagLevel {
       )
     );
     this.addTag(
-      new OpengraphTag(
-        'business:contact_data:locality',
-        companyDataArg.contact.address.postalCode
-      )
+      new OpengraphTag('business:contact_data:locality', companyDataArg.contact.address.postalCode)
     );
     this.addTag(
       new OpengraphTag('business:contact_data:region', companyDataArg.contact.address.city)
@@ -54,12 +48,11 @@ export class TagLevel {
       )
     );
     this.addTag(
-      new OpengraphTag(
-        'business:contact_data:country_name',
-        companyDataArg.contact.address.country
-      )
+      new OpengraphTag('business:contact_data:country_name', companyDataArg.contact.address.country)
     );
   }
+
+  public addPostInfo() {}
 
   public async enable() {
     if (this.title) {

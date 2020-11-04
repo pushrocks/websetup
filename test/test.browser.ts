@@ -6,8 +6,8 @@ tap.test('first test', async () => {
     metaObject: {
       description: 'A awesome description',
       title: 'mytitle',
-      canonicalDomain: 'lossless.com'
-    }
+      canonicalDomain: 'lossless.com',
+    },
   });
   await websetupInstance.readyPromise;
   expect(document.title).to.equal('mytitle');

@@ -1,4 +1,4 @@
-import { Tag } from "./websetup.classes.tag";
+import { Tag } from './websetup.classes.tag';
 
 export class MetaTag extends Tag {
   constructor(metaNameArg: string, contentArg: string) {

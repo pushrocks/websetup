@@ -1,7 +1,7 @@
 import * as plugins from './websetup.plugins';
 import * as interfaces from './interfaces';
 
-import { Tag } from "./websetup.classes.tag";
+import { Tag } from './websetup.classes.tag';
 
 export class JsonLdTag extends Tag {
   public static createCompanyLd(companyDataArg: plugins.tsclass.business.ICompany) {
@@ -22,11 +22,11 @@ export class JsonLdTag extends Tag {
       },
       sameAs: [],
     };
-  
+
     if (companyDataArg.contact.facebookUrl) {
       companyLd.sameAs.push(companyDataArg.contact.facebookUrl);
     }
-  
+
     if (companyDataArg.contact.twitterUrl) {
       companyLd.sameAs.push(companyDataArg.contact.twitterUrl);
     }

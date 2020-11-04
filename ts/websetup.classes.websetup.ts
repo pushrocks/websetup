@@ -17,7 +17,9 @@ export class WebSetup {
   public readyPromise = this.readyDeferred.promise;
   constructor(optionsArg: IWebSetupConstructorOptions) {
     this.options = optionsArg;
-    this.setup().then(() => {this.readyDeferred.resolve()});
+    this.setup().then(() => {
+      this.readyDeferred.resolve();
+    });
   }
 
   /**
@@ -38,6 +40,5 @@ export class WebSetup {
    * sets a subpage
    * @param metaObject
    */
-  public setSubLevel(metaObject: interfaces.IMetaObject) {
-  }
+  public setSubLevel(metaObject: interfaces.IMetaObject) {}
 }

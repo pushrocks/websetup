@@ -22,11 +22,11 @@ export class TagManager {
     this.baseLevel = new TagLevel(this, 'base');
     this.baseLevel.title = metaObjectArg.title;
     this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
-    
-    if (metaObjectArg.canonicalDomain){
-      this.baseLevel.addTag(new MetaTag('canonical', metaObjectArg.canonicalDomain))
+
+    if (metaObjectArg.canonicalDomain) {
+      this.baseLevel.addTag(new MetaTag('canonical', metaObjectArg.canonicalDomain));
     }
-  
+
     if (metaObjectArg.ldCompany) {
       this.baseLevel.addCompanyInfo(metaObjectArg.ldCompany);
     }
