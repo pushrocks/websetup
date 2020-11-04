@@ -9,7 +9,7 @@ tap.test('first test', async () => {
       canonicalDomain: 'lossless.com'
     }
   });
-  await websetupInstance.setup();
+  await websetupInstance.readyPromise;
   expect(document.title).to.equal('mytitle');
 });
 
