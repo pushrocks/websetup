@@ -16,15 +16,16 @@
     "websafe"
   ],
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.1.22",
-    "@gitzone/tsbundle": "^1.0.72",
-    "@gitzone/tstest": "^1.0.38",
-    "@pushrocks/tapbundle": "^3.2.7",
-    "tslint": "^6.1.0",
+    "@gitzone/tsbuild": "^2.1.25",
+    "@gitzone/tsbundle": "^1.0.78",
+    "@gitzone/tstest": "^1.0.52",
+    "@pushrocks/tapbundle": "^3.2.9",
+    "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {
-    "@tsclass/tsclass": "^3.0.18"
+    "@pushrocks/smartpromise": "^3.1.3",
+    "@tsclass/tsclass": "^3.0.29"
   },
   "files": [
     "ts/**/*",
