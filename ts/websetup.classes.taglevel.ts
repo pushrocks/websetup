@@ -6,6 +6,8 @@ import * as plugins from './websetup.plugins';
 
 export type TBaseLevelType = 'global' | 'base' | 'subpage';
 
+export type TLevelState = 'enabled' | 'disabled';
+
 export class TagLevel {
   public tagManagerRef: TagManager;
 
@@ -13,12 +15,17 @@ export class TagLevel {
   public type: TBaseLevelType;
   public tags: Tag[] = [];
 
+  public state: TLevelState = 'disabled';
+
   constructor(tagManagerRefArg: TagManager, levelType: TBaseLevelType) {
     this.tagManagerRef = tagManagerRefArg;
   }
 
   public addTag(tagArg: Tag) {
     this.tags.push(tagArg);
+    if (this.state === 'enabled') {
+      tagArg.appendToDom();
+    }
   }
 
   public async addCompanyInfo(companyDataArg: plugins.tsclass.business.ICompany) {
@@ -63,11 +70,13 @@ export class TagLevel {
     for (const tagArg of this.tags) {
       tagArg.appendToDom();
     }
+    this.state = 'enabled';
   }
 
   public async disable() {
     for (const tagArg of this.tags) {
       tagArg.removeFromDom();
     }
+    this.state = 'disabled';
   }
 }
