@@ -6,22 +6,22 @@ import { JsonLdTag } from './websetup.classes.tag.jsonldtag';
 import { OpengraphTag } from './websetup.classes.tag.opengraphtag';
 
 export class TagManager {
-  public globalLevel: TagLevel;
+  public globalLevel: TagLevel = new TagLevel(this, 'global');
 
-  public baseLevel: TagLevel;
+  public baseLevel: TagLevel = new TagLevel(this, 'base');
 
   public activeLevel: TagLevel;
 
   public async setup(metaObjectArg: interfaces.IMetaObject) {
     // global tag level
-    this.globalLevel = new TagLevel(this, 'global');
     this.globalLevel.addTag(new MetaTag('google', 'notranslate'));
     this.globalLevel.addTag(new MetaTag('revisit-after', '1 days'));
 
     // base tag level
-    this.baseLevel = new TagLevel(this, 'base');
     this.baseLevel.title = metaObjectArg.title;
-    this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
+    if (metaObjectArg.description) {
+      this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
+    }
 
     if (metaObjectArg.canonicalDomain) {
       this.baseLevel.addTag(new MetaTag('canonical', metaObjectArg.canonicalDomain));
@@ -37,7 +37,9 @@ export class TagManager {
   public setSubPageLevel(metaObjectArg: interfaces.IMetaObject) {
     const subPageLevel = new TagLevel(this, 'subpage');
     subPageLevel.title = metaObjectArg.title;
-    subPageLevel.addTag(new MetaTag('description', metaObjectArg.description));
+    if (metaObjectArg.description) {
+      this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
+    }
     this.activeLevel.disable();
     this.activeLevel = subPageLevel;
     this.activeLevel.enable();

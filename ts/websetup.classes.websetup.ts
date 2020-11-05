@@ -25,7 +25,10 @@ export class WebSetup {
   /**
    * an async setup called by the constructor
    */
-  private async setup() {
+  public async setup(optionsArg?: IWebSetupConstructorOptions) {
+    if (optionsArg) {
+      this.options = optionsArg;
+    }
     await this.tagManager.setup(this.options.metaObject);
   }
 

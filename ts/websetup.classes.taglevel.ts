@@ -11,7 +11,17 @@ export type TLevelState = 'enabled' | 'disabled';
 export class TagLevel {
   public tagManagerRef: TagManager;
 
-  public title: string;
+  private titleStore: string;
+  public set title(titleArg: string) {
+    this.titleStore = titleArg;
+    if (this.state === 'enabled') {
+      document.title = this.titleStore;
+    }
+  }
+  public get title() {
+    return this.titleStore;
+  }
+
   public type: TBaseLevelType;
   public tags: Tag[] = [];
 
