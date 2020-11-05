@@ -43,7 +43,8 @@ export class WebSetup {
    * sets a subpage
    * @param metaObjectArg
    */
-  public setSubLevel(metaObjectArg: interfaces.IMetaObject) {
-    return this.tagManager.setSubPageLevel(metaObjectArg);
+  public async setSubLevel(metaObjectArg: interfaces.IMetaObject) {
+    const subLevel = await this.tagManager.setSubPageLevel(metaObjectArg);
+    return subLevel;
   }
 }

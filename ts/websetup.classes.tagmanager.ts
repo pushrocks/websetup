@@ -31,26 +31,27 @@ export class TagManager {
       this.baseLevel.addCompanyInfo(metaObjectArg.ldCompany);
     }
     await this.globalLevel.enable();
-    await this.baseLevel.enable();
+    this.activeLevel = this.baseLevel;
+    await this.activeLevel.enable();
   }
 
-  public setSubPageLevel(metaObjectArg: interfaces.IMetaObject) {
+  public async setSubPageLevel(metaObjectArg: interfaces.IMetaObject) {
     const subPageLevel = new TagLevel(this, 'subpage');
     subPageLevel.title = metaObjectArg.title;
     if (metaObjectArg.description) {
       this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
     }
-    this.activeLevel.disable();
+    await this.activeLevel.disable();
     this.activeLevel = subPageLevel;
-    this.activeLevel.enable();
+    await this.activeLevel.enable();
     return subPageLevel;
   }
 
-  public revertToBaseLevel() {
+  public async revertToBaseLevel() {
     if (this.activeLevel !== this.baseLevel) {
-      this.activeLevel.disable();
+      await this.activeLevel.disable();
       this.activeLevel = this.baseLevel;
-      this.activeLevel.enable();
+      await this.activeLevel.enable();
     }
   }
 }
