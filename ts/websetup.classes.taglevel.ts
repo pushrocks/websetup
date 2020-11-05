@@ -52,7 +52,9 @@ export class TagLevel {
     );
   }
 
-  public addPostInfo() {}
+  public addNewsArticleInfo(articleArg: plugins.tsclass.content.IArticle) {
+    this.addTag(JsonLdTag.createNewsArticleLd(articleArg));
+  }
 
   public async enable() {
     if (this.title) {

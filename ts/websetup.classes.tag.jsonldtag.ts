@@ -63,6 +63,8 @@ export class JsonLdTag extends Tag {
       },
       "description": newsArticleArg.author.firstName
     };
+    const ldTag = new JsonLdTag(newsArticleArg);
+    return ldTag;
   }
 
   constructor(ldObjectArg: any) {
