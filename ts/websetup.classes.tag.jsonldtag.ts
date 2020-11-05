@@ -71,7 +71,7 @@ export class JsonLdTag extends Tag {
     super();
     const jsonLdElement = document.createElement('script');
     jsonLdElement.type = 'application/ld+json';
-    jsonLdElement.text = JSON.stringify(JSON.stringify(ldObjectArg));
+    jsonLdElement.text = JSON.stringify(ldObjectArg);
     this.elementRef = jsonLdElement;
   }
 }

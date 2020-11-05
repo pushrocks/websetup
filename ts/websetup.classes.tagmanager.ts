@@ -39,7 +39,7 @@ export class TagManager {
     const subPageLevel = new TagLevel(this, 'subpage');
     subPageLevel.title = metaObjectArg.title;
     if (metaObjectArg.description) {
-      this.baseLevel.addTag(new MetaTag('description', metaObjectArg.description));
+      subPageLevel.addTag(new MetaTag('description', metaObjectArg.description));
     }
     await this.activeLevel.disable();
     this.activeLevel = subPageLevel;

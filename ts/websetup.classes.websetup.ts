@@ -47,4 +47,6 @@ export class WebSetup {
     const subLevel = await this.tagManager.setSubPageLevel(metaObjectArg);
     return subLevel;
   }
+
+  public flashTitle(flashTextArg: string) {}
 }
