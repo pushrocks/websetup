@@ -41,6 +41,7 @@ export class TagManager {
     this.activeLevel.disable();
     this.activeLevel = subPageLevel;
     this.activeLevel.enable();
+    return subPageLevel;
   }
 
   public revertToBaseLevel() {
