@@ -31,10 +31,16 @@ export class TagLevel {
     this.tagManagerRef = tagManagerRefArg;
   }
 
-  public addTag(tagArg: Tag) {
-    this.tags.push(tagArg);
-    if (this.state === 'enabled') {
-      tagArg.appendToDom();
+  public addTag(tagArg: Tag | Tag[]) {
+    if (tagArg instanceof Array) {
+      for (const tagArg2 of tagArg) {
+        this.addTag(tagArg2);
+      }
+    } else {
+      this.tags.push(tagArg);
+      if (this.state === 'enabled') {
+        tagArg.appendToDom();
+      }
     }
   }
 
@@ -70,7 +76,8 @@ export class TagLevel {
   }
 
   public addNewsArticleInfo(articleArg: plugins.tsclass.content.IArticle) {
-    this.addTag(JsonLdTag.createNewsArticleLd(articleArg));
+    this.addTag(JsonLdTag.createNewsArticleJsonLd(articleArg));
+    this.addTag(OpengraphTag.createNewsArticleOgTags(articleArg));
   }
 
   public async enable() {
