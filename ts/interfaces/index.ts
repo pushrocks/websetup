@@ -9,7 +9,7 @@ export interface IMetaObject {
 
   // handles
   twitterHandle?: string;
-  facebookhandle?: string;
+  facebookHandle?: string;
 
   // links
   companyWebsiteLink?: string;
