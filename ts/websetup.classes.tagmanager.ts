@@ -16,7 +16,7 @@ export class TagManager {
     // global tag level
     this.globalLevel.addTag(new MetaTag('google', 'notranslate'));
     this.globalLevel.addTag(new MetaTag('revisit-after', '1 days'));
-    
+
     if (metaObjectArg.twitterHandle) {
       this.globalLevel.addTag(new MetaTag('twitter:card', 'summary_large_image'));
       this.globalLevel.addTag(new MetaTag('twitter:site', metaObjectArg.twitterHandle));

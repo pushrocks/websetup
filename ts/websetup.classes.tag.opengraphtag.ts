@@ -2,7 +2,7 @@ import * as plugins from './websetup.plugins';
 import { Tag } from './websetup.classes.tag';
 
 export class OpengraphTag extends Tag {
-  public static createNewsArticleOgTags (newsArticleArg: plugins.tsclass.content.IArticle) {
+  public static createNewsArticleOgTags(newsArticleArg: plugins.tsclass.content.IArticle) {
     const tagArray: OpengraphTag[] = [];
     tagArray.push(new OpengraphTag('og:url', newsArticleArg.url));
     tagArray.push(new OpengraphTag('og:title', newsArticleArg.title));
