@@ -58,6 +58,10 @@ export class WebSetup {
     return subLevel;
   }
 
+  /**
+   * flashes the title with the given text
+   * @param flashTextArg
+   */
   public flashTitle(flashTextArg: string) {}
 
   /**
