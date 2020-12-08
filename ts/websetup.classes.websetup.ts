@@ -5,6 +5,7 @@ import { TagLevel } from './websetup.classes.taglevel';
 
 export interface IWebSetupConstructorOptions {
   metaObject: interfaces.IMetaObject;
+  smartssrWaitForReadySignal?: boolean;
 }
 
 /**
@@ -13,12 +14,21 @@ export interface IWebSetupConstructorOptions {
 export class WebSetup {
   public tagManager: TagManager = new TagManager();
   public options: IWebSetupConstructorOptions;
+  
+  // private deferreds
   private readyDeferred = plugins.smartpromise.defer();
+  private readyForSmartssrDeferred = plugins.smartpromise.defer();
+
+  // public promises
   public readyPromise = this.readyDeferred.promise;
+  public readyForSmartssrPromise = this.readyForSmartssrDeferred.promise;
   constructor(optionsArg: IWebSetupConstructorOptions) {
     this.options = optionsArg;
     this.setup().then(() => {
       this.readyDeferred.resolve();
+      if (!this.options.smartssrWaitForReadySignal) {
+        this.readyForSmartssrDeferred.resolve();
+      }
     });
   }
 
@@ -49,4 +59,14 @@ export class WebSetup {
   }
 
   public flashTitle(flashTextArg: string) {}
+
+  /**
+   * informs smartssr that the page is ready to be rendered
+   */
+  public informReadyForSmartssr() {
+    if (!this.options.smartssrWaitForReadySignal) {
+      console.error(`You have not indicated that you inform smartssr by a dedicated signal! Please consider doing so!`);
+    }
+    this.readyForSmartssrDeferred.resolve();
+  }
 }
